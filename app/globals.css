@@ -19,11 +19,78 @@
 body {
     color: rgb(var(--foreground-rgb));
     background: rgb(var(--background-top-rgb));
-    overflow-y: hidden;
+    @media screen and (max-width: 360px) {
+        overflow-y: visible;
+    }
+    /* overflow-y: hidden; */
+    overflow-x: hidden;
 }
+
 .about {
     background: rgb(var(--background-rgb));
 }
+.parent {
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    gap: 0px;
+    height: 100%;
+}
+.div1 {
+    grid-row-start: 1;
+    grid-column-start: 1;
+    grid-row-end: 2;
+    grid-column-end: 5;
+}
+.div2 {
+    grid-row-start: 1;
+    grid-column-start: 5;
+    grid-row-end: 2;
+    grid-column-end: 6;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: slategrey;
+    border-radius: 2px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: rgb(var(--background-rgb));
+    border-radius: 2px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+@layer base {
+    h1 {
+        @apply text-3xl;
+    }
+    h2 {
+        @apply text-2xl;
+    }
+    h3 {
+        @apply text-xl;
+    }
+}
+
+@layer components {
+    .link {
+        @apply underline hover:text-[#FF5733] duration-300 underline-offset-2;
+    }
+    .bar {
+        @apply bg-[#fe542e];
+    }
+}
+
 @layer utilities {
     .text-balance {
         text-wrap: balance;

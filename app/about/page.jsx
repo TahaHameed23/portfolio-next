@@ -1,7 +1,5 @@
-import React from 'react'
-
+"use client"
+import AboutComp from "./components/AboutComp";
 export default function page() {
-  return (
-    <div>page</div>
-  )
+  return <AboutComp />
 }
